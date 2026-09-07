@@ -1,0 +1,92 @@
+[
+  {
+    "id": "eval-faq-preco",
+    "category": "faq",
+    "description": "Cliente perguntando sobre preço do alongamento",
+    "input": "Oi! Qual o valor do alongamento de gel?",
+    "expected_tool": "query_faq",
+    "expected_contains": ["R$", "150", "gel"],
+    "must_not_contain": ["R$ 200", "R$ 100", "não sei"]
+  },
+  {
+    "id": "eval-faq-durabilidade",
+    "category": "faq",
+    "description": "Cliente perguntando durabilidade",
+    "input": "Quanto tempo dura o alongamento?",
+    "expected_tool": "query_faq",
+    "expected_contains": ["semana", "3", "4"],
+    "must_not_contain": ["6 meses", "1 ano", "não sei"]
+  },
+  {
+    "id": "eval-faq-cuidados",
+    "category": "faq",
+    "description": "Cliente perguntando sobre cuidados pós-procedimento",
+    "input": "O que preciso fazer para manter as unhas bonitas depois?",
+    "expected_tool": "query_faq",
+    "expected_contains": ["cutícula", "luvas", "hidrat"],
+    "must_not_contain": ["não sei", "não tenho informação"]
+  },
+  {
+    "id": "eval-audio-explicacao",
+    "category": "audio",
+    "description": "Cliente pedindo explicação sobre procedimento - deve enviar áudio",
+    "input": "Como funciona o procedimento de alongamento? Me explica melhor",
+    "expected_tool": "get_pre_recorded_audio",
+    "expected_contains": ["áudio", "audio", "explicação", "procedimento"],
+    "must_not_contain": []
+  },
+  {
+    "id": "eval-audio-cuidados",
+    "category": "audio",
+    "description": "Cliente querendo saber mais sobre cuidados - deve enviar áudio de cuidados",
+    "input": "Me fala mais sobre os cuidados que devo ter",
+    "expected_tool": "get_pre_recorded_audio",
+    "expected_contains": [],
+    "must_not_contain": []
+  },
+  {
+    "id": "eval-agenda-verificar",
+    "category": "scheduling",
+    "description": "Cliente perguntando sobre horários disponíveis",
+    "input": "Quais horários você tem disponível essa semana para um alongamento?",
+    "expected_tool": "check_availability",
+    "expected_contains": ["horário", "disponível"],
+    "must_not_contain": ["não tenho agenda", "não sei verificar"]
+  },
+  {
+    "id": "eval-agenda-marcar",
+    "category": "scheduling",
+    "description": "Cliente querendo agendar após ver os horários",
+    "input": "Quero agendar para quinta-feira às 14h, meu nome é Maria Silva",
+    "expected_tool": "book_appointment",
+    "expected_contains": ["agendado", "confirmado", "quinta", "14h"],
+    "must_not_contain": ["não consigo agendar", "erro"]
+  },
+  {
+    "id": "eval-pagamento",
+    "category": "faq",
+    "description": "Cliente perguntando sobre formas de pagamento",
+    "input": "Vocês aceitam cartão de crédito?",
+    "expected_tool": "query_faq",
+    "expected_contains": ["PIX", "cartão", "pagamento"],
+    "must_not_contain": ["não aceitamos", "apenas dinheiro"]
+  },
+  {
+    "id": "eval-cancelamento",
+    "category": "faq",
+    "description": "Cliente perguntando sobre política de cancelamento",
+    "input": "Se eu precisar cancelar, tem alguma taxa?",
+    "expected_tool": "query_faq",
+    "expected_contains": ["24h", "cancelamento", "taxa"],
+    "must_not_contain": ["não tem política", "pode cancelar a qualquer hora sem aviso"]
+  },
+  {
+    "id": "eval-offtopic",
+    "category": "boundary",
+    "description": "Mensagem fora do escopo do estúdio",
+    "input": "Qual a previsão do tempo para amanhã?",
+    "expected_tool": null,
+    "expected_contains": ["estúdio", "unhas", "serviço"],
+    "must_not_contain": ["temperatura", "chuva", "sol"]
+  }
+]
