@@ -1,0 +1,30 @@
+{
+  "name": "nailsai-agent",
+  "version": "0.1.0",
+  "description": "AI Agent for nail design studio - WhatsApp scheduling & FAQ via Cloudflare Workers + Durable Objects",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "deploy": "wrangler deploy",
+    "build": "tsc --noEmit",
+    "eval": "tsx src/evals/eval-runner.ts",
+    "db:migrate:local": "wrangler d1 execute nails-db --local --file=./src/db/schema.sql",
+    "db:migrate:remote": "wrangler d1 execute nails-db --remote --file=./src/db/schema.sql",
+    "types": "wrangler types"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.124.0",
+    "@google/genai": "^2.21.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "googleapis": "^178.0.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.0.0",
+    "@cloudflare/workers-types": "^4.20250901.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vitest": "~4.1.0",
+    "wrangler": "^4.12.0"
+  }
+}

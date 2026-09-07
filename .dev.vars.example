@@ -1,0 +1,7 @@
+# Secrets (Worker Secrets - set via `wrangler secret put`)
+GEMINI_API_KEY=AIzaSyYourGeminiApiKeyHere
+ANTHROPIC_API_KEY=sk-ant-your-key-here
+EVOLUTION_API_KEY=nailsai-secret-key-change-in-prod
+GOOGLE_SERVICE_ACCOUNT_JSON={"type":"service_account","project_id":"your-project","private_key_id":"...","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"nailsai@your-project.iam.gserviceaccount.com","client_id":"...","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token"}
+GOOGLE_CALENDAR_ID=your-email@gmail.com
+PUBLIC_AUDIO_BASE_URL=https://pub-your-r2-bucket-id.r2.dev

@@ -1,0 +1,47 @@
+{
+  "name": "nailsai-agent",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CLIENT_SESSION",
+        "class_name": "ClientSessionDO"
+      }
+    ]
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nails-db",
+      "database_id": "local-nails-db"
+    }
+  ],
+
+  "r2_buckets": [
+    {
+      "binding": "AUDIO_BUCKET",
+      "bucket_name": "nails-audios"
+    }
+  ],
+
+  "vars": {
+    "EVOLUTION_API_URL": "http://localhost:8080",
+    "EVOLUTION_INSTANCE_NAME": "elen-v3",
+    "STUDIO_PHONE": "5511964222720",
+    "STUDIO_TIMEZONE": "America/Sao_Paulo"
+  },
+
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_classes": ["ClientSessionDO"]
+    }
+  ]
+}
